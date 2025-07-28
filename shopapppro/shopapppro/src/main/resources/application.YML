@@ -1,0 +1,32 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 10MB
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:mysql://localhost:3308/shoppapp?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none # Chỉ sử dụng drop-create khi cần thiết.
+    properties:
+      hibernate.dialect: org.hibernate.dialect.MySQL8Dialect
+      hibernate.format_sql: true
+
+server:
+  port: 8089
+
+api:
+  prefix: /api/v1
+jwt:
+  expiration: 2592000 #30 days = 30 * 24 * 60 * 60
+#  expiration-refresh-token: 5184000 #60 days = 60 * 24 * 60 * 60
+  secretKey:  Jkl56FGhYP9hJ+WzTB+sxRaH8yZvMp34hx/Uq4GnO68=
+
+
+#  eyJhbGciOiJIUzI1NiJ9:
+#    eyJwaG9uZU51bWJlciI6IjAxMjQ1NjgyMiIsInVzZXJJZCI6Miwic3ViIjoiMDEyNDU2ODIyIiwiZXhwIjoxNzUxNTMxMDI0fQ:
+#      dZs1TPutIzetwxZueXSvwvNYQ4XUDdMYz0DhA33Es6o:
